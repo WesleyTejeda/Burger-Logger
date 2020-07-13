@@ -1,2 +1,2 @@
-require("./connect");
+const connection = require("./connect");
 
