@@ -1,12 +1,15 @@
-const mysql = require("mysql");
-const inquirer = require("inquirer");
-require("dotenv").config();
+var PORT = process.env.PORT || 8080;
+const express = require("express");
+const app = express();
+app.use(express.static("public"));
 
-var connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: process.env.DB_PASS,
-    database: "burger_db"
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+const exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+app.listen(PORT, function() {
+    console.log("Server listening on: http://localhost:" + PORT);
 });
-  
