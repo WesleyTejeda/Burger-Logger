@@ -1,0 +1,28 @@
+body {
+    background-color: lightslategray;
+}
+
+.container{
+    background-color: white;
+    border-radius: 5px;
+    border: 5px solid black;
+    margin-top: 75px;
+    padding-top: 75px;
+    padding-bottom: 150px;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.right-bordered {
+    border-right: 2px solid black;
+}
+
+.devourBtn {
+    /* margin-bottom: 10px; */
+}
