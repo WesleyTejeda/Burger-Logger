@@ -14,6 +14,7 @@
                 {{/each}}
             </div>
         </div>
+        <hr>
         <div>
             <h3><i class="fas fa-plus"></i> Add a burger</h3>
             <form id="addBurgerForm" method="POST">
@@ -28,19 +29,8 @@
                 <select>
                     <option class="updateBurgerOption">Sample Burger</option>
                 </select>
-                <input id="updateBurgerName" type="text" value="Sample Burger"/>
+                <input id="updateBurgerName" type="text" placeholder="Rename me!"/>
                 <button id="updateBtn" type="submit">Update Me!</button>
-            </form>
-            <hr>
-        </div>
-        <div>
-            <h3><i class="far fa-trash-alt"></i> Remove a Burger</h3>
-            <form id="addBurgerForm" method="DELETE">
-                <!-- <input id="addBurger" type="text" placeholder="Burger Name"/> -->
-                <select>
-                    <option class="deleteBurgerOption">Sample Burger</option>
-                </select>
-                <button id="deleteBtn" type="submit">Delete Me!</button>
             </form>
         </div>
     </div>
