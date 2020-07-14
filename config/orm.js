@@ -1,11 +1,18 @@
 const connection = require("./connect.js");
 
-let questionMarkNum = (num) => {
-    let numArr = [];
-    for(let i=0; i < num; i++) {
-        numArr.push("?");
-    }
-    // return 
+let translateObjToSql = obj => {
+    let keyValArr = [];
+
+    obj.forEach(key => {
+        let val = obj.key;
+        if (Object.hasOwnProperty.call(obj, key)) {
+            if (typeof val === "string" && val.indexOf(" ") >= 0) {
+                val = "'" + val + "'";
+              }
+              keyValArr.push(key + "=" + val);
+        }
+    })
+    return keyValArr.toString();
 }
 
 const orm = {
@@ -26,7 +33,7 @@ const orm = {
         })
     },
     updateOne: (table, objColVals, condition, cb) =>{
-        let query = `UPDATE ${table} SET ${objColVals} WHERE ${condition};`
+        let query = `UPDATE ${table} SET ${translateObjToSql(objColVals)} WHERE ${condition};`
         connection.query(query,(err, result) => {
             if (err)
                 throw err;
