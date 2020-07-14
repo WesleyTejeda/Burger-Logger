@@ -20,8 +20,10 @@ router.post("/api/burger", (req, res) => {
 
 router.put("/api/burger/:id", (req, res) => {
     let condition = `id=${req.params.id}`;
+    console.log(req.body);
+    console.log(condition);
     burger.updateOne({
-        name: req.body.burgerName
+        burger_name: req.body.newBurgerName
     }, condition, result => {
         if (result.changedRows == 0) {
             return res.status(500).json({message: `Error while updating ${req.body.burgerName}`});

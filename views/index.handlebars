@@ -4,12 +4,18 @@
             <div class="col right-bordered">
                 <h3>Current Burgers</h3>
                 {{#each burgers}}
-                    <p>{{burger_name}}<button class="ml-2 devourBtn">Devour <i class="far fa-arrow-alt-circle-right"></i></button></p>
+                    {{#unless devoured}}
+                        <p data-burgerName={{burger_name}} data-id={{id}}>{{burger_name}}<button class="ml-2 devourBtn">Devour <i class="far fa-arrow-alt-circle-right"></i></button></p>
+                    {{/unless}}
                 {{/each}}
             </div>
             <div class="col">
                 <h3>Devoured Zone</h3>
-                <p>Sample Devoured Burger Entries</p>
+                {{#each burgers}}
+                    {{#if devoured}}
+                        <p>Sample Devoured Burger Entries</p>
+                    {{/if}}
+                {{/each}}
             </div>
         </div>
         <hr>
@@ -24,9 +30,9 @@
         <div>
             <h3><i class="fas fa-sync-alt"></i> Update a Burger</h3>
             <form id="updateBurgerForm" method="PUT">
-                <select>
+                <select name="burgers">
                     {{#each burgers}}
-                    <option class="updateBurgerOption" value={{id}}>{{burger_name}}</option>
+                        <option class="updateBurgerOption" value={{id}}>{{burger_name}}</option>
                     {{/each}}
                 </select>
                 <input id="updateBurgerName" type="text" placeholder="Rename me!"/>

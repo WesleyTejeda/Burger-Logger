@@ -24,13 +24,15 @@ $(document).ready(() =>{
     //Put
     $("#updateBurgerForm").on("submit", function(event) {
         event.preventDefault();
-        let burgerName = $(this).data("burgerName");
-        let id = $(this).data("id");
-
-        $.ajax({
-            URL: "/api/burger/" + id,
+        //Grabs id from form data
+        let id = $(this[0])[0].value;
+        let newName = {
+            newBurgerName: $("#updateBurgerName").val().trim()
+        };
+        $.ajax("/api/burger/" + id,
+         {
             method: "PUT",
-            data: burgerName
+            data: newName
         }).then(() => {
             location.reload();
         })
