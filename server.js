@@ -1,11 +1,11 @@
 let PORT = process.env.PORT || 8080;
 const express = require("express");
 const app = express();
-app.use(express.static("public"));
 const router = require("./controllers/burgers_controller");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
 const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

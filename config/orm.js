@@ -25,7 +25,7 @@ const orm = {
         })
     },
     insertOne: (table, cols, vals, cb) =>{
-        let query = `INSERT INTO ${table}(${cols}) VALUES(${vals});`;
+        let query = `INSERT INTO ${table}(${cols}) VALUES('${vals[0]}', ${vals[1]});`;
         connection.query(query, (err, result) => {
             if (err)
                 throw err;

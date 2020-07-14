@@ -3,15 +3,13 @@
         <div class="row">
             <div class="col right-bordered">
                 <h3>Current Burgers</h3>
-                {{#each readyBurger}}
-                    <p>Sample Burger Entries<button class="ml-2 devourBtn">Devour <i class="far fa-arrow-alt-circle-right"></i></button></p>
+                {{#each burgers}}
+                    <p>{{burger_name}}<button class="ml-2 devourBtn">Devour <i class="far fa-arrow-alt-circle-right"></i></button></p>
                 {{/each}}
             </div>
             <div class="col">
                 <h3>Devoured Zone</h3>
-                {{#each devouredBurger}}
-                    <p>Sample Devoured Burger Entries</p>
-                {{/each}}
+                <p>Sample Devoured Burger Entries</p>
             </div>
         </div>
         <hr>

@@ -1,20 +1,37 @@
 const express = require("express");
 const router = express.Router();
-const burger = require("../models/burger.js");
+let burger = require("../models/burger.js");
 
 router.get("/", (req, res) => {
-
+    burger.selectAll(burgerData => {
+        let handleObj = {
+            burgers: burgerData
+        }
+        res.render("index", handleObj);
+    })
 });
 
-router.post("/", (req, res) => {
-    
+router.post("/api/burger", (req, res) => {
+    console.log(req.body.burgerName);
+    burger.insertOne(["burger_name", "devoured"],[req.body.burgerName, false], result => {
+        res.status(200).json({id: result.insertId});
+    })
 });
 
-router.put("/", (req, res) => {
-    
+router.put("/api/burger/:id", (req, res) => {
+    let condition = `id=${req.params.id}`;
+    burger.updateOne({
+        name: req.body.burgerName
+    }, condition, result => {
+        if (result.changedRows == 0) {
+            return res.status(500).json({message: `Error while updating ${req.body.burgerName}`});
+        } else {
+            res.status(200).end();
+        }
+    })
 });
 
-router.delete("/", (req, res) => {
+router.delete("/api/burger/:id", (req, res) => {
     
 });
 
