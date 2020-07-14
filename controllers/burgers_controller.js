@@ -32,7 +32,7 @@ router.put("/api/burger/:id", (req, res) => {
 });
 
 router.delete("/api/burger/:id", (req, res) => {
-    
+    console.log(req.params);
 });
 
 

@@ -25,7 +25,9 @@
             <h3><i class="fas fa-sync-alt"></i> Update a Burger</h3>
             <form id="updateBurgerForm" method="PUT">
                 <select>
-                    <option class="updateBurgerOption">Sample Burger</option>
+                    {{#each burgers}}
+                    <option class="updateBurgerOption" value={{id}}>{{burger_name}}</option>
+                    {{/each}}
                 </select>
                 <input id="updateBurgerName" type="text" placeholder="Rename me!"/>
                 <button id="updateBtn" type="submit">Update Me!</button>
