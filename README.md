@@ -6,7 +6,7 @@ Deployed Link: https://burger-logger-v1.herokuapp.com/
 <img alt="Preview of Site" src="./public/assets/img/burger-demo.gif" style="width: 100%"/>
 
 ## Description
-In this repository I've created a site that tracks the status of burgers. The MVC model was used to develop this site.
+In this repository I've created a site that tracks the status of burgers. The MVC design was used to develop this site.
 
 ## Installation
 Install using ```npm install```
