@@ -34,6 +34,14 @@ router.put("/api/burger/:id", (req, res) => {
     })
 });
 
+router.delete("/api/burger/:id", (req, res) => {
+    let condition = `id=${req.params.id}`;
+    console.log(condition);
+    burger.deleteOne(condition, result => {
+        res.status(200).end();
+    })
+});
+
 router.get("*", (req, res) => {
     burger.selectAll(burgerData => {
         let handleObj = {

@@ -33,6 +33,24 @@ const orm = {
                 throw err;
             cb(result);
         })
+    },
+    updateOne: (table, objColVals, condition, cb) =>{
+        let setText = translateObjToSql(objColVals);
+        let query = `UPDATE ${table} SET ${setText} WHERE ${condition};`
+        connection.query(query,(err, result) => {
+            if (err)
+                throw err;
+            cb(result);
+        })
+    },
+    deleteOne: (table, condition, cb) =>{
+        let query = `DELETE FROM ${table} WHERE ${condition};`;
+        console.log(query);
+        connection.query(query,(err, result) => {
+            if (err)
+                throw err;
+            cb(result);
+        })
     }
 }
 
