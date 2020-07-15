@@ -1,7 +1,7 @@
 # Burger-Logger
 By ```Wesley Tejeda```
-Repository Link: (https://github.com/wesleytejeda/Burger-Logger)<br>
-Deployed Link: [coming soon]
+Repository Link: https://github.com/wesleytejeda/Burger-Logger <br>
+Deployed Link: https://burger-logger-v1.herokuapp.com/
 ## Demo
 
 ## Description
