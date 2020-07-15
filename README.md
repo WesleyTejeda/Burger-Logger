@@ -1,5 +1,5 @@
 # Burger-Logger
-By ```Wesley Tejeda```
+By ```Wesley Tejeda``` <br>
 Repository Link: https://github.com/wesleytejeda/Burger-Logger <br>
 Deployed Link: https://burger-logger-v1.herokuapp.com/
 ## Demo
