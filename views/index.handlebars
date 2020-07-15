@@ -5,7 +5,7 @@
                 <h3>Current Burgers</h3>
                 {{#each burgers}}
                     {{#unless devoured}}
-                        <p data-burgerName={{burger_name}} data-id={{id}}>{{burger_name}}<button class="ml-2 devourBtn">Devour <i class="far fa-arrow-alt-circle-right"></i></button></p>
+                        <p data-burgerName={{burger_name}} data-id={{id}} data-devoured="true">{{burger_name}}<button class="ml-2 devourBtn">Devour <i class="far fa-arrow-alt-circle-right"></i></button></p>
                     {{/unless}}
                 {{/each}}
             </div>
@@ -13,7 +13,7 @@
                 <h3>Devoured Zone</h3>
                 {{#each burgers}}
                     {{#if devoured}}
-                        <p>Sample Devoured Burger Entries</p>
+                        <p data-burgerName={{burger_name}} data-id={{id}}>{{burger_name}}</p>
                     {{/if}}
                 {{/each}}
             </div>
