@@ -1,13 +1,16 @@
 //Wait until page loaded
 $(document).ready(() =>{
-    //'Delete' (will post to other list)
+    //( post to devour list)
     $(".devourBtn").on("click", function(event) {
         event.preventDefault();
-        let id = $(this).parent.data("id");
-
+        let id = $(this).parent().data("id");
+        let burgerStatus = {
+            devoured: 1
+        }
         $.ajax({
-            URL: "/api/burger/" + id,
-            method: "DELETE",
+            url: "/api/burger/" + id,
+            method: "PUT",
+            data: burgerStatus
         }).then(() => {
             location.reload();
         })
@@ -16,7 +19,6 @@ $(document).ready(() =>{
     $("#addBurgerForm").on("submit", function(event) {
         event.preventDefault();
         let burgerName ={burgerName: $("#addBurger").val().trim()};
-        console.log(burgerName);
         $.post("/api/burger", burgerName).then(() => {
             location.reload();
         })
@@ -24,12 +26,11 @@ $(document).ready(() =>{
     //Put
     $("#updateBurgerForm").on("submit", function(event) {
         event.preventDefault();
-        //Grabs id from form data
         let id = $(this[0])[0].value;
         let newName = {
             newBurgerName: $("#updateBurgerName").val().trim()
         };
-        $.ajax("/api/burger/" + id,
+        $.ajax("/api/burger/swap/" + id,
          {
             method: "PUT",
             data: newName

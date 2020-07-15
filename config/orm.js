@@ -2,14 +2,9 @@ const connection = require("./connect.js");
 
 let translateObjToSql = obj => {
     let keyValArr = [];
-    console.log(obj);
 
-    for(var key in obj) {
-        var val = obj[key];
-        console.log(val);
-        keyValArr.push(`${key}="${val}"`);
-    }
-    console.log(keyValArr);
+    for(var key in obj) 
+        keyValArr.push(`${key}="${obj[key]}"`);
     return keyValArr.toString();
 }
 
@@ -31,9 +26,7 @@ const orm = {
         })
     },
     updateOne: (table, objColVals, condition, cb) =>{
-        console.log(objColVals + " is the old object");
         let setText = translateObjToSql(objColVals);
-        console.log(setText + " is the new array");
         let query = `UPDATE ${table} SET ${setText} WHERE ${condition};`
         connection.query(query,(err, result) => {
             if (err)
