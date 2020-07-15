@@ -3,7 +3,7 @@ By ```Wesley Tejeda``` <br>
 Repository Link: https://github.com/wesleytejeda/Burger-Logger <br>
 Deployed Link: https://burger-logger-v1.herokuapp.com/
 ## Demo
-
+!["Preview of Site"](/public/assets/img/burger-demo.gif)
 ## Description
 In this repository I've created a site that tracks the status of burgers. The MVC model was used to develop this site.
 
