@@ -13,7 +13,7 @@
                 <h3>Devoured Zone</h3>
                 {{#each burgers}}
                     {{#if devoured}}
-                        <p data-burgerName={{burger_name}} data-id={{id}}>{{burger_name}}</p>
+                        </a><p data-burgerName={{burger_name}} data-id={{id}}>{{burger_name}} <a class="deleteBtn" href="#"><i class="fas fa-backspace"></i></a></p>
                     {{/if}}
                 {{/each}}
             </div>

@@ -15,10 +15,35 @@ $(document).ready(() =>{
             location.reload();
         })
     });
+    // Deletes from devoured list
+    $(".deleteBtn").on("click", function(event) {
+        event.preventDefault();
+        let id = $(this).parent().data("id");
+        $.ajax({
+            url: "/api/burger/" + id,
+            method: "DELETE"
+        }).then(() => {
+            location.reload();
+        })
+    });
     //Add
     $("#addBurgerForm").on("submit", function(event) {
         event.preventDefault();
-        let burgerName ={burgerName: $("#addBurger").val().trim()};
+        let burgerName = $("#addBurger").val().trim();
+        let charArr = burgerName.split("");
+        let charDeleteArr = ["'",'"',"`","\\"];
+        charArr.forEach(char => {
+            if(charDeleteArr.includes(char)){
+                let index = charArr.indexOf(char);
+                charArr.splice(index, 1);
+            }
+        })
+        console.log(charArr);
+        charArr = charArr.join("");
+        console.log(charArr);
+        burgerName = {
+            burgerName: charArr
+        }
         $.post("/api/burger", burgerName).then(() => {
             location.reload();
         })
